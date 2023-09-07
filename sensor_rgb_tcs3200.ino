@@ -51,15 +51,17 @@ void readSensorRGB()
       String rgbString = "RGB [" + String(red) + "," + String(green) + "," + String(blue) + "]";
       Serial.println(rgbString);
 
-      if(r > g && r > b){
-        Serial.println("VERMELHO");
-      }else if(g > b && g > r){
-        Serial.println("VERDE");
-      }else if(b > g && b > r){
-        Serial.println("AZUL");
-      }else{
-        Serial.println("Sem cor");
-      }
+        if(red > green && red > blue){
+          Serial.println("VERMELHO");
+        }else if(green > blue && green > red){
+          Serial.println("VERDE");
+        }else if(blue > green && blue > red){
+          Serial.println("AZUL");
+        }else if(blue == green && blue == red && red == 255){
+          Serial.println("BRANCO");
+        }else{
+          Serial.println("Sem cor");
+        }
 
       waiting = false;
     }
